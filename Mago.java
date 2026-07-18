@@ -5,8 +5,6 @@ public class Mago extends Personagem {
 		super(nome, "Mago", nivel, vida, poderBase);
 		this.inteligencia = inteligencia;
 	}
-
-    //	DEFINIÇÃO DE METODOS DE CLASSE
 	
 	@Override
 	public void usarHabilidadeEspecial() {

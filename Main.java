@@ -1,32 +1,38 @@
-//	IMPORTAÇÃO DAS BIBLIOTECAS
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
 
 	public static void main(String[] args) {
-		//	INSTANCIAÇÃO DE OBJETOS E PRINT DE MÉTODOS
-		Mago Gandalf = new Mago("Gandalf", 99, 100, 99, 8000);
+//		CRIANDO NOVOS PERSONAGENS, EXIBINDO STATUS E UTILIZANDO HABILIDADE ESPECIAL
+		Mago Gandalf = new Mago("Gandalf", 99, 100, 99, 951);
 		System.out.println(Gandalf.exibirStatus());
 		Gandalf.usarHabilidadeEspecial();
 		
-		Guerreiro Guts = new Guerreiro("Guts", 99, 999, 8000, 8000);
+		Guerreiro Guts = new Guerreiro("Guts", 99, 786, 484, 361);
 		System.out.println(Guts.exibirStatus());
 		Guts.usarHabilidadeEspecial();
 		
-		//	CRIAÇÃO DE ARRAY
-		List<Personagem> herois = new ArrayList<>();
-		herois.add(Gandalf);
-		herois.add(Guts);
+//		CRIANDO NOVOS MEMBROS
+		Mago Melina = new Mago("Melina", 52, 307, 186, 520);
+		Guerreiro Radahn = new Guerreiro("Radahn", 57, 62, 220, 480);
 		
-		herois.add(new Mago("Melina", 52, 307, 186, 520));
+//		ADICIONANDO MEMBROS NO GRUPO
+		Grupo grupoA = new Grupo("Avengers");
+		grupoA.adicionarMembro(Radahn);
+		grupoA.adicionarMembro(Gandalf);
 		
-		//	LOOP FOR COM PRINT DE METODOS
-
-		System.out.println("\nDemonstração de loop For/Polimorfismo.\n");
-		for(Personagem p : herois) {
-			System.out.println(p.exibirStatus());
-			p.usarHabilidadeEspecial();
-		}
+		Grupo grupoB = new Grupo("Destroyers");
+		grupoB.adicionarMembro(Guts);
+		grupoB.adicionarMembro(Melina);
+		
+//		LISTANDO OS GRUPOS
+		grupoA.listarMembros();
+		grupoB.listarMembros();
+		
+//		EXIBINDO BATALHA DE PERSONAGENS
+		grupoA.batalhar(Gandalf, Guts);
+		grupoB.batalhar(Radahn, Melina);
+		
+//		CRIANDO E CHAMANDO FUNÇÃO DE BATALHA NA ARENA (GRUPO)
+		Arena arena = new Arena(grupoA, grupoB);
+		arena.batalhaGrupo();
 	}
 }

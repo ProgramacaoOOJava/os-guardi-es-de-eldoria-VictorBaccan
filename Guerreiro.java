@@ -6,8 +6,6 @@ public class Guerreiro extends Personagem {
 		this.forca = forca;
 	}
 	
-    //	DEFINIÇÃO DE METODOS DE CLASSE
-
 	@Override
 	public void usarHabilidadeEspecial() {
 		System.out.println("Guerreiro usou ataque esgamagador!\n");
